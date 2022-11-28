@@ -10,13 +10,13 @@ Baidu also offers a preliminary solution by a simple GRU model, baseline codes s
 
 Wind power is a rapidly growing source of clean energy. Accurate wind power forecasting is essential for grid stability and the security of supply. Therefore, organizers provide a wind power dataset containing historical data from 134 wind turbines and launch the [Baidu KDD Cup 2022](https://aistudio.baidu.com/aistudio/competition/detail/152/0/introduction) to examine the limitations of current methods for wind power forecasting. The average of RMSE (Root Mean Square Error) and MAE (Mean Absolute Error) is used as the evaluation score. 
 
-We adopt two spatial-temporal graph neural network models, i.e., AGCRN and MTGNN, as our basic models. We train AGCRN by 5-fold cross-validation and additionally train MTGNN directly on the training and validation sets. Finally, we ensemble the two models based on the loss values of the validation set as our final submission. Using our method, our team **BUAA\_BIGSCity** achieves -45.36026 on the test set.
+We adopted two recurrent neural network models, i.e., plain RNN and GRU, as our basic models. Those two models was trained separately by 5-fold cross-validation. Finally, we ensemble the two models based on the loss of the validation set as our final submission. Our team **Zealen** has achieved -46.13 on the final test set.
 
 ## Train
 
 First place the [data](https://aistudio.baidu.com/aistudio/competition/detail/152/0/datasets) in the `data/` directory. Then run the script `gen_graph.py` to generate the geographic distance graph. After this, you can train the models.
 
-### MTGNN
+### RNN and GRU
 
 You can run the following command to train the MTGNN model on a 214-day training sets and a 31-day validation sets.
 
