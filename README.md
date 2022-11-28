@@ -14,18 +14,18 @@ We adopted two recurrent neural network models, i.e., plain RNN and GRU, as our 
 
 ## Train
 
-First place the [data](https://aistudio.baidu.com/aistudio/competition/detail/152/0/datasets) in the `data/` directory. Then run the script `gen_graph.py` to generate the geographic distance graph. After this, you can train the models.
+First place the [data](https://aistudio.baidu.com/aistudio/competition/detail/152/0/datasets) in the `data/` directory.
 
-### RNN and GRU
-
-You can run the following command to train the MTGNN model on a 214-day training sets and a 31-day validation sets.
+You can run the following command to train the RNN or GRU model on a 214-day training set and a 31-day validation set.
 
 ```shell
 python train.py
 ```
 
+Currently in `train.py` script the model is specified to be plain RNN. You should modify the `prepare.py` in order to change the model to GRU.
+
 ### Fusion
 
-After training, we perform a weighted fusion of the prediction results of the 5 AGCRN models based on the reciprocals of valid losses. After obtaining the ensembled AGCRN model, we integrate the ensembled AGCRN model and MTGNN model again according to the ratio of **4:6** and obtain the final model prediction results. 
+After training, we perform a weighted fusion of the prediction results of the RNN and GRU model based on the loss in validation set. We additionally enumerated the best ratio of RNN and GRU predictions, then combined the two models' prediction according to that specific ratio. 
 
-Using this method, we achieve **-45.36026** on the test set finally. The `submit.zip` here is our final submission file.
+Using this method, we achieve **-46.13** on the test set finally.
