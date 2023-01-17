@@ -12,9 +12,13 @@ Wind power is a rapidly growing source of clean energy. Accurate wind power fore
 
 We adopted two recurrent neural network models, i.e., plain RNN and GRU, as our basic models. Those two models was trained separately by 5-fold cross-validation. Finally, we ensemble the two models based on the loss of the validation set as our final submission. Our team **Zealen** has achieved -46.13 on the final test set.
 
-## Train
+## Prepare
 
 First place the [data](https://aistudio.baidu.com/aistudio/competition/detail/152/0/datasets) in the `data/` directory.
+
+All the parameters, for instance \# of layers, \# of features used, are defined in `prepare.py` in dictionary. If you want to run the experiments on your own, please modify `prepare.py` accordingly.
+
+## Train
 
 You can run the following command to train the RNN or GRU model on a 214-day training set and a 31-day validation set.
 
